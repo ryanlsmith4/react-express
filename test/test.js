@@ -10,13 +10,17 @@ describe('utils: random()', () => {
     expect(n).to.be.a('number')
   })
 
-  const min = 6
-  const max = Math.floor(Math.random() * 20) + min
-  it(`Expect numbers to be less than ${max} and at least 0`, () => {
-    for (let i = 0; i < 100; i += 1) {
+  it('Expects an integer', () => {
+    const n = random(6)
+    expect(n).to.satisfy(Number.isInteger)
+  })
+  
+  const max = Math.floor(Math.random() * 94) + 6
+  it('Expect n >= 0 and ', () => {
+    for (let i = 0; i < max; i += 1) {
       const n = random(max)
-      expect(n < max).to.be.true
-      expect(n >= 0).to.be.true
+      expect(n).to.be.at.least(0)
+      expect(n).to.be.below(max)
     }
   })
 })
@@ -27,20 +31,37 @@ describe('utils: randomD()', () => {
     expect(n).to.be.a('number')
   })
 
-  const min = 6
-  const max = Math.floor(Math.random() * 20) + min
-  it(`Expect numbers to be less than ${max} and at least 1`, () => {
-    for (let i = 0; i < 100; i += 1) {
+  it('Expects an integer', () => {
+    const n = random(6)
+    expect(n).to.satisfy(Number.isInteger)
+  })
+
+  const max = Math.floor(Math.random() * 94) + 6
+  it('Expect n >= 0 and ', () => {
+    for (let i = 0; i < max; i += 1) {
       const n = randomD(max)
-      expect(n <= max).to.be.true
-      expect(n > 0).to.be.true
+      expect(n).to.be.at.least(1)
+      expect(n).to.be.at.most(max)
     }
   })
 })
 
 describe('utils: randomRolls()', () => {
-  it('Expect a Array', () => {
+  it('Expect an Array', () => {
     const rolls = randomRolls(3, 6)
     expect(rolls).to.be.a('array')
+  })
+
+  it('Expect an Array with at least one element', () => {
+    const rolls = randomRolls(3, 6)
+    expect(rolls.length).to.be.at.least(1)
+  })
+
+  it('Expect all items to be numbers', () => {
+    const rolls = randomRolls(3, 6)
+    expect(rolls.length).to.be.at.least(1)
+    rolls.forEach((n) => {
+      expect(n).to.be.a('number')
+    })
   })
 })

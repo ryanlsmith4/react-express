@@ -2,6 +2,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
+const { random, randomD, randomRolls } = require('./utils')
+
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -15,16 +17,16 @@ app.get('/', (req, res) => {
 })
 
 // A simple route that returns a JSON object
-app.get('/test', (req, res) => {
-  res.json({ test: 'foo' })
+app.get('/about', (req, res) => {
+  res.json({ about: 'this service generates a random numbers.' })
 })
 
 // 
 app.get('/random', (req, res) => {
   const n = req.query.n
-  const value = Math.random() * n
+  const value = random(n)
   res.json({ value })
 })
 
-const port = 6000
+const port = 4000
 app.listen(port, () => console.log(`LISTENING ON PORT ${port}`))
