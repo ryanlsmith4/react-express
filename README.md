@@ -45,18 +45,66 @@ Test some other values. Try some unexpected or values that you think would retur
 
 ## Challenges (3hrs)
 
-Your goal is to add some features to this API. 
+Your goal is to add some features to this API. Currently the code stores some functions in `utils.js`. These are imported into `server.js` with: 
+
+`const { random, randomD, randomRolls } = require('./utils')`
+
+You can find this at the top of `server.js`. 
+
+All of these functions are stubbed in currently. Your job is to fill these functions out and build their functionality and test them along the way. 
+
+Run the tests to check your work. 
+
+`npm test`
 
 **Challenge 1** 
 
-Currently the API endpoint '/random/?n=num' returns a random number from 0 to num. This has a problem since the numbers returned are decimal numbers, for example: 
+Currently the API endpoint '/random/?n=num' returns a random number from 0 to num. This has a problem since the numbers returned are decimal numbers, for example: `13.409162476456668`. Modify the code at the endpoint to return whole numbers. 
 
-1. Return random numbers in a range. The call should take a value that sets the range.
-1. Return die rolls. The call should take in the number of dice, and the number of sides. It should return an array of "rolls" and the total of all rolls. 
-1. A service that takes a notation string and returns the dice rolls. 
-  - Notication string uses this format: nDs where n is the number of dice and s is the number of sides. 
-  - a + adds the next value so
-    - 2D6+2 rolls 2 d 6 and adds 2
-    - 3D6+1D4 rolls 3 d 6 and adds a 1 d 4 roll
-1. Serve your Tweet generator
-1. CRUD a simple resource. 
+- The random function should return a whole number. 
+- The number should range from 0 to n - 1
+
+**Challenge 2** 
+
+You need a function to simulate die rolls. Currently there is a stubbed function `randomD(n)`. This function takes a number n as a parameter. It should return a number from 1 to n. 
+
+- `randomD(n)` should return a whole number 
+- `randomD(n)` should return a number from 1 to n
+
+**Challenge 3** 
+
+We need to a function to generate a series of die rolls. This function is stubbed in as `randomRolls(n, s)`, `n` is number of dice to roll, and `s` is number of sides. This function should return an array of random numbers. 
+
+- `randomRolls(n, s)` should return an array
+- all elements should whole numbers
+- There should be at least 1 element (the array should not be empty)
+- Each element should be value of 1 to s
+
+**Cahllenge 4** 
+
+You need to modify the API to work with the new functions. Currently You can use the `/random/?n=6` to get a random between 0 and 5. Your job is to add an option that returns a die roll. This should be a number from 1 to n. For excample: 
+
+- `/random/?die=6` should return a number from 1 to 6
+
+**Challenge 5** 
+
+You need to expand your API to return a number of die rolls. This new call should return an array of random numbers
+
+- `/random/?num=3&die=6` should return an array of 3 numbers from 1 to 6
+
+##Challenge 6** 
+
+Modify the API to work with path rather than the query string. For example: 
+
+- `/random/6` returns a value from 0 to 5
+- `/random/die/6` returns value from 1 to 6
+- `/random/dice/3/6` returns an array of 3 die rolls from 1 to 6
+
+**Stretch Challenges** 
+
+Try any of these you want with any extra time you have. 
+
+- Return a random quote
+  - Create an endpoint that returns a random quote
+  
+
