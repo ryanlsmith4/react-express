@@ -11,19 +11,23 @@ app.use(bodyParser.json())
 
 // ** Proxy from React can't get at '/' for some reason?
 // Apparently this is expected behavior... **
+// Test this route with: localhost:4000/
 app.get('/', (req, res) => {
-  // For testing only the project doesn't use this route
-  res.json({ message: "Hello World" })
+  res.json({ message: 'Hello World' })
 })
 
 // A simple route that returns a JSON object
+// Test this route with:
 app.get('/about', (req, res) => {
+  // This Object is converted to JSON and returned.
   res.json({ about: 'this service generates a random numbers.' })
 })
 
-// 
+// Random number route
+// Test this route with: http://localhost:4000/random?n=99
+// Where n=99 sets the range of the random number returned
 app.get('/random', (req, res) => {
-  const n = req.query.n
+  const { n } = req.query
   const value = random(n)
   res.json({ value })
 })
