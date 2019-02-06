@@ -79,25 +79,16 @@ You need a function to simulate die rolls. Currently there is a stubbed function
 
 **Challenge 3** 
 
-We need to a function to generate a series of die rolls. This function is stubbed in as `randomRolls(n, s)`, `n` is number of dice to roll, and `s` is number of sides possessed by each die. This function should return an array of random numbers. 
+We need to a function to generate a series of die rolls. This function is stubbed in as `randomRolls(n, s)`, `n` is number of dice to roll, and `s` is number of sides possessed by each die. This function should return an **array of random numbers**. 
 
 - `randomRolls(n, s)` should return an array
-	- all elements should whole numbers
+	- All elements should whole numbers
 	- Each element should be value of 1 to `s`
+- Add an API that works with this function
+	- It should return JSON formatted with intuitive properties
+	- Add a property that holds the total of all rolls
 
-**Challenge 4** 
-
-You need to modify the API to work with the new functions. Currently You can use the `/random/?n=6` to get a random between 0 and 5. Your job is to add an option that returns a die roll. This should be a number from 1 to n. For excample: 
-
-- `/random/?die=6` should return a number from 1 to 6
-
-**Challenge 5** 
-
-You need to expand your API to return a number of die rolls. This new call should return an array of random numbers
-
-- `/random/?num=3&die=6` should return an array of 3 numbers from 1 to 6
-
-##Challenge 6** 
+##Challenge 4** 
 
 Modify the API to work with path rather than the query string. For example: 
 
@@ -105,11 +96,10 @@ Modify the API to work with path rather than the query string. For example:
 - `/random/die/6` returns value from 1 to 6
 - `/random/dice/3/6` returns an array of 3 die rolls from 1 to 6
 
+Think about the API carefully and design it to be both intuitive and self documenting as much as you can. Think of making this an API that you would find easy to use. 
+
 **Stretch Challenges** 
 
-Try any of these you want with any extra time you have. 
-
-- Return a random quote
-  - Create an endpoint that returns a random quote
-  
+- Make an API that returns Loto Numbers
+- Make an API that returns from another API in a better format
 
