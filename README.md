@@ -61,26 +61,31 @@ Run the tests to check your work.
 
 Currently the API endpoint '/random/?n=num' returns a random number from 0 to num. This has a problem since the numbers returned are decimal numbers, for example: `13.409162476456668`. Modify the code at the endpoint to return whole numbers. 
 
-- The random function should return a whole number. 
+- The random function should return a **whole number**. 
 - The number should range from 0 to n - 1
+- Carefully craft an intuitive API
+	- The API should read well and be self documenting
+	- The JSON returned should be intuitive unambiguous
 
 **Challenge 2** 
 
 You need a function to simulate die rolls. Currently there is a stubbed function `randomD(n)`. This function takes a number n as a parameter. It should return a number from 1 to n. 
 
 - `randomD(n)` should return a whole number 
-- `randomD(n)` should return a number from 1 to n
+- `randomD(n)` the range should be from 1 to n
+- Define an API that returns the results as JSON
+	- Your API should be intuitive and self documenting
+	- The JSON returned should be intuitive
 
 **Challenge 3** 
 
-We need to a function to generate a series of die rolls. This function is stubbed in as `randomRolls(n, s)`, `n` is number of dice to roll, and `s` is number of sides. This function should return an array of random numbers. 
+We need to a function to generate a series of die rolls. This function is stubbed in as `randomRolls(n, s)`, `n` is number of dice to roll, and `s` is number of sides possessed by each die. This function should return an array of random numbers. 
 
 - `randomRolls(n, s)` should return an array
-- all elements should whole numbers
-- There should be at least 1 element (the array should not be empty)
-- Each element should be value of 1 to s
+	- all elements should whole numbers
+	- Each element should be value of 1 to `s`
 
-**Cahllenge 4** 
+**Challenge 4** 
 
 You need to modify the API to work with the new functions. Currently You can use the `/random/?n=6` to get a random between 0 and 5. Your job is to add an option that returns a die roll. This should be a number from 1 to n. For excample: 
 
