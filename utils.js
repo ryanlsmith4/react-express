@@ -5,10 +5,12 @@ function random(n) {
 }
 
 function randomD(n) {
+  
   return 0
 }
 
 function randomRolls(n, s) {
+
   return []
 }
 
