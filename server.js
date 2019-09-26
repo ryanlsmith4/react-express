@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 // Test this route with:
 app.get('/about', (req, res) => {
   // This Object is converted to JSON and returned.
-  res.json({ about: 'this service generates a random numbers.' })
+  res.json({ about: 'This service generates a random number.' })
 })
 
 // Random number route
@@ -30,6 +30,13 @@ app.get('/random', (req, res) => {
   const { n } = req.query
   const value = random(n)
   res.json({ value })
+})
+
+// /random?n=3&s=6
+app.get('/randomrolls', (req, res) => {
+  const { n, s } = req.query
+  const rolls = randomRolls(n, s)
+  res.json({ rolls }) // { "rolls": [1,2,3] }
 })
 
 const port = 4000
